@@ -182,14 +182,15 @@
 		position: absolute;
 		inset: 0;
 		margin-inline: calc(50% - 320px);
-		max-height: 640px;
+		top: calc(320px * 0.02);
+		max-height: calc(640px);
 	}
 	img {
-		max-width: 640px;
-		max-height: 640px;
+		max-width: calc(640px / 0.98);
+		max-height: calc(640px / 0.98);
 		position: absolute;
 		inset: 0;
-		margin-inline: calc(50% - 320px);
+		margin-inline: calc(50% - 320px / 0.98);
 		pointer-events: none;
 		user-select: none;
 		opacity: 0.5;

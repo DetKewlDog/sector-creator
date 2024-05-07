@@ -2,8 +2,8 @@ export function getSectorPath(a1: number, a2: number, r1: number, r2: number, ma
 	a1 *= 15;
 	a2 *= 15;
 
-  r1 = Math.max(0, (r1 * 0.1 - 0.02) * mapRadius);
-	r2 = Math.max(0, (r2 * 0.1 - 0.02) * mapRadius);
+  r1 = Math.max(0, r1 * 0.1 * mapRadius);
+	r2 = Math.max(0, r2 * 0.1 * mapRadius);
 
 	if (a1 === 0 && a2 === 0) {
 		// center sector
@@ -31,5 +31,5 @@ export function getSectorPath(a1: number, a2: number, r1: number, r2: number, ma
 		return `${opcode} ${startX} ${startY} A ${radius} ${radius} 0 ${largeArc} ${inner} ${endX} ${endY}`;
 	}
 
-	return `${getPath(r1, 90 - a2, a2 - a1, true)} ${getPath(r2, 90 - a2 + a2 - a1, a1 - a2, false)}`;
+	return `${getPath(r1, 90 - a2, a2 - a1, true)} ${getPath(r2, 90 - a2 + a2 - a1, a1 - a2, false)} L ${getAnglePosition((90 - a2) * Math.PI / 180, r1).join(' ')}`;
 }
